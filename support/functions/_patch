@@ -112,10 +112,10 @@ _apply_consolepatch(){
 				cd "$svndir"
 				if _streamboard_patch "$pdir/$e"; then
 					SKIPPATHS=-p0
-					printf "$y_l\n |     PATCH : apply streamboard-style patch $e\n"
+					printf "$y_l\n |     PATCH : apply streamboard-style patch $e"
 				else
 					SKIPPATHS=-p1
-					printf "$y_l\n |     PATCH : apply regular patch $e\n"
+					printf "$y_l\n |     PATCH : apply regular patch $e"
 				fi
 				patch -F 10 -f $SKIPPATHS < "$pdir/$e" >>"$patchlog" 2>/dev/null
 				hunks=$(grep -c1 "^Hunk" "$patchlog")
@@ -148,10 +148,10 @@ _apply_consolepatch(){
 
 			if [ "$_w" -gt "0" ]
 			then
-				printf "$y_l\n |     PATCH : done with warnings"
+				printf "$y_l\n |     PATCH : done with warnings\n"
 				touch  "$workdir/SVN-IS-PATCHED"
 			else
-				printf "$y_l\n |     PATCH :$g_l done all ok$rs_"
+				printf "$y_l\n |     PATCH :$g_l done all ok\n$rs_"
 				touch  "$workdir/SVN-IS-PATCHED"
 			fi
 
